@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% extends 'C:/Users/Zayne/AppData/Roaming/Python/Python39/blog/index.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registraion</title>
+</head>
+<body>
+    <div class="container-sm box-element-login">
+        <div class="form-title">
+            <h3>Register Account!</h3>
+        </div>
+        <div class="form-style">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="input-group mb-2">
+                    <div class="register-label">
+                        {{form.username.label}}
+                    </div>
+                    <div class="register-field">
+                        {{form.username}}
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="register-label">
+                        {{form.email.label}}
+                    </div>
+                    <div class="register-field">
+                        {{form.email}}
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="register-label">
+                        {{form.password1.label}}
+                    </div>
+                    <div class="register-field">
+                        {{form.password1}}
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="register-label">
+                        {{form.password2.label}}
+                    </div>
+                    <div class="register-field">
+                        {{form.password2}}
+                    </div>
+                </div>
+                <div class="btn-style">
+                    <input type="submit" name="Create User" class="btn btn-outline-dark bootin">
+                </div>
+            </form>
+        </div>
+
+        {{form.errors}}
+        
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links">Already have an account? <a href="{% url 'login_page' %}" class="m1-2"> Login!</a></div>
+        </div>    
+    
+    </div>
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder='Username..';
+        form_fields[2].placeholder='Email..';
+        form_fields[3].placeholder='Enter Password..';
+        form_fields[4].placeholder='Re-enter Password';
+
+        for (var field in form_fields){
+            form_fields[field].className += ' form-control'
+        }
+    </script>
+
+        
+    
+</body>
+{% endblock content %}
+</html>

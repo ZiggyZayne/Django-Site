@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'C:/Users/Zayne/AppData/Roaming/Python/Python39/blog/index.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'C:/Users/Zayne/AppData/Roaming/Python/Python39/Scripts/Blog/static/css/main.css' %}">
+</head>
+<body>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{product.imageURL}}">
+            <div class="box-element product">
+                <h6><strong>{{product.name}}</strong></h6>
+                <hr>
+                <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add To Cart</button>
+                <a class="btn btn-outline-success" href="{{product.fileURL}}">Download</a>
+                <h4 style="display: inline; float: right"><strong>${{product.price|floatformat:2}}</strong></h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+{% endblock content %}
+</html>

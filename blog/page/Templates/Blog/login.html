@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'C:/Users/Zayne/AppData/Roaming/Python/Python39/blog/index.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body>
+    <div class="container-sm box-element-login">
+        <div class="form-title">
+            <h3>Login!</h3>
+        </div>
+        <div class="form-style">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="input-group mb-2">
+                    <div class="register-label">
+                        <span>Username: </span>
+                    </div>
+                    <div class="register-field">
+                        <input type="text" name="username" placeholder="Username.." class="form-control">
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="register-label">
+                        <span>Password: </span>
+                    </div>
+                    <div class="register-field">
+                        <input type="password" name="password" placeholder="Password.." class="form-control">
+                    </div>
+                </div>
+                <div class="btn-style">
+                    <input type="submit" name="Login" class="btn btn-outline-dark bootin" value="Login">
+                </div>
+            </form>
+        </div>
+
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
+        
+        <div class="mt-4">
+            <div class="d-flex justify-content-center links">Don't have an account? <a href="{% url 'register_page' %}" class="m1-2"> Sign up!</a></div>
+        </div>    
+    
+    </div>
+
+        
+    
+</body>
+{% endblock content %}
+</html>

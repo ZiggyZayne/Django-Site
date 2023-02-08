@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'C:/Users/Zayne/AppData/Roaming/Python/Python39/blog/index.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungeon Designs Blog</title>
+</head>
+<body>
+    <header class="masthead">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h3 class="site-heading my-4 mt-3 text-white ddb"><img id="blogbook2" src="{% static 'C:/Users/Zayne/AppData/Roaming/Python/Python39/Scripts/Blog/static/images/spellbook.jpeg' %}"> Dungeon Designs Blog <img id="blogbook" src="{% static 'C:/Users/Zayne/AppData/Roaming/Python/Python39/Scripts/Blog/static/images/spellbook.jpeg' %}"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mt-3 justify-content-center">
+                {% for post in post %} 
+                <div class="card mb-4">    
+                    <div>
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text">{{ post.author }} | {{ post.created_on}}</p>
+                        <p class="card-text">{{post.content|slice:":200"}}</p>
+                        <a href="{% url 'blog_post' post.slug %}" class="btn btn-primary">Read more! &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}   
+            </div>
+        </div>
+    </div>
+    
+</body>
+{% endblock content %}
+</html>
